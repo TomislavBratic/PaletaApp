@@ -1,0 +1,35 @@
+.custom-oval-search-input {
+    position: relative;
+    border: none;          /* Remove the default input border */
+    outline: none;         /* Remove the outline on focus */
+    background-color: #fff; /* Background color */
+    border-radius: 20px;   /* Border radius to create an oval shape */
+    padding: 8px 15px;     /* Padding */
+    width: 250px;          /* Adjust the width as needed */
+    transition: all 0.3s;  /* Add a smooth transition effect */
+  }
+  
+  .custom-oval-search-input input {
+    border: none;             /* Remove the input border */
+    width: calc(100% - 30px); /* Adjust the width to fill the container */
+    padding: 8px;             /* Adjust the padding as needed */
+    border-radius: 20px;      /* Border radius to match the container */
+    background-color: inherit; /* Inherit the background color from the container */
+    outline: none;            /* Remove the outline on focus */
+    font-family: 'Arial', sans-serif; /* Change the font style for the input text */
+    color: #333; /* Change the color of the input text */
+  }
+  
+  .custom-oval-search-input mat-icon {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    color: #999; /* Icon color */
+    
+  }
+
+  .custom-oval-search-input input::placeholder {
+    font-style: italic;  /* Change the font style for the placeholder text */
+    color: #999;         /* Placeholder text color */
+  }

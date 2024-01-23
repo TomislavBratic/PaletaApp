@@ -1,0 +1,17 @@
+.example-card {
+    display: flex;
+    width: 65%; /* Set the width to 75% */
+    margin: auto; /* Center the card horizontally */
+   
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+    
+  }
+  .card-container{
+    display: flex;
+    align-items: center; /* Center content vertically */
+    width: 100%;
+  }
