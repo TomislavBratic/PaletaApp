@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.34301.259
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Banak", "Banak\Banak.csproj", "{9B43457C-8B86-429A-9A3F-1AF0B67618EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BanakDataAccess", "BanakDataAccess\BanakDataAccess.csproj", "{A268797B-ED5D-46BF-B470-310CF07BED2B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9B43457C-8B86-429A-9A3F-1AF0B67618EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B43457C-8B86-429A-9A3F-1AF0B67618EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B43457C-8B86-429A-9A3F-1AF0B67618EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B43457C-8B86-429A-9A3F-1AF0B67618EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A268797B-ED5D-46BF-B470-310CF07BED2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A268797B-ED5D-46BF-B470-310CF07BED2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A268797B-ED5D-46BF-B470-310CF07BED2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A268797B-ED5D-46BF-B470-310CF07BED2B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1F44059C-4472-41EC-90D4-24B0670CB0AA}
+	EndGlobalSection
+EndGlobal

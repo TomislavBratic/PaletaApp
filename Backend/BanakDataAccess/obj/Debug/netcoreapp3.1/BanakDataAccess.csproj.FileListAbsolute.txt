@@ -1,0 +1,10 @@
+C:\Users\Ticbra\source\repos\BanakApp\BanakDataAccess\bin\Debug\netcoreapp3.1\BanakDataAccess.deps.json
+C:\Users\Ticbra\source\repos\BanakApp\BanakDataAccess\bin\Debug\netcoreapp3.1\BanakDataAccess.dll
+C:\Users\Ticbra\source\repos\BanakApp\BanakDataAccess\bin\Debug\netcoreapp3.1\BanakDataAccess.pdb
+C:\Users\Ticbra\source\repos\BanakApp\BanakDataAccess\obj\Debug\netcoreapp3.1\BanakDataAccess.csproj.AssemblyReference.cache
+C:\Users\Ticbra\source\repos\BanakApp\BanakDataAccess\obj\Debug\netcoreapp3.1\BanakDataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ticbra\source\repos\BanakApp\BanakDataAccess\obj\Debug\netcoreapp3.1\BanakDataAccess.AssemblyInfoInputs.cache
+C:\Users\Ticbra\source\repos\BanakApp\BanakDataAccess\obj\Debug\netcoreapp3.1\BanakDataAccess.AssemblyInfo.cs
+C:\Users\Ticbra\source\repos\BanakApp\BanakDataAccess\obj\Debug\netcoreapp3.1\BanakDataAccess.csproj.CoreCompileInputs.cache
+C:\Users\Ticbra\source\repos\BanakApp\BanakDataAccess\obj\Debug\netcoreapp3.1\BanakDataAccess.dll
+C:\Users\Ticbra\source\repos\BanakApp\BanakDataAccess\obj\Debug\netcoreapp3.1\BanakDataAccess.pdb
