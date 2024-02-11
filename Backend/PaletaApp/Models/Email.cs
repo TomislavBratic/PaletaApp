@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace BanakDataAccess.Models
+namespace PaletaApp.Models
 {
     public class Email
-    {
+    {   [Key]
         public int Id { get; set; }
 
         [Required]

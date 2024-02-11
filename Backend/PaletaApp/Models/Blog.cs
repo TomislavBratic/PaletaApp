@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace BanakDataAccess.Models
+namespace PaletaApp.Models
 {
     public class Blog
     {
+        [Key]
         public int Id { get; set; }
         [Required]
         [MaxLength(100)]
@@ -16,7 +17,7 @@ namespace BanakDataAccess.Models
         public string Content { get; set; }
         [Required]
         [MaxLength(50)]
-        public  bool status { get; set; }
+        public  bool Status { get; set; }
         [Required]
         public DateTime DateAdded { get; set; }
         [Required]

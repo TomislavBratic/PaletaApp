@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.ComponentModel.DataAnnotations;
-namespace BanakDataAccess.Models.DTO
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace PaletaApp.Models.DTO
 {
-    class CreatePersonRequest
+    public class GetPersonRequest
     {
         [Required]
         [MaxLength(100)]
@@ -15,5 +18,6 @@ namespace BanakDataAccess.Models.DTO
         public List<Address> Addresses { get; set; } = new List<Address>();
         public List<Email> Emails { get; set; } = new List<Email>();
         public List<Blog> Blogs { get; set; } = new List<Blog>();
+
     }
 }

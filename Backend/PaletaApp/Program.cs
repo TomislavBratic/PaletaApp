@@ -21,6 +21,8 @@ namespace PaletaApp
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                    
                 });
+ 
     }
 }

@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace BanakDataAccess.Models
+namespace PaletaApp.Models
 {
    public class Person
     {
+        [Key]
         public int Id { get; set; }
         [Required]
         [MaxLength(100)]
