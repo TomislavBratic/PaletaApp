@@ -9,7 +9,6 @@ namespace PaletaApp.Repositories.Interfaces
     public interface IPeopleRepository
     {
         Task<Person> AddPersonNameAsync(Person person);
-        Task<List<Address>> AddListAddressesAsync(List<Address> address);
-        Task<List<Email>> AddListEmailAddressesAsync(List<Email> email);
+        Task<List<Person>> GetPeopleAsync();
     }
 }

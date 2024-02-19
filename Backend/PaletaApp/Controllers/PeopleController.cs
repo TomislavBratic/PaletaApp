@@ -23,39 +23,41 @@ namespace PaletaApp.Controllers
         {
             this.peopleRepository = peopleRepository;
         }
+
         [HttpPost]
-        public async Task<IActionResult> CreatePerson(GetPersonRequest request)
+        public async Task<IActionResult> CreatePeople(List<PersonDto> request)
         {
-            var person = new Person
+           
+            foreach(var persons in request)
             {
-                FirstName = request.FirstName,
-                LastName = request.LastName,
-            };
-
-           await peopleRepository.AddPersonNameAsync(person);
-
-           List<Address> addresses = request.Addresses;
-
-            if (addresses == null || !addresses.Any())
-            { return BadRequest("empty List address"); }
-
-            else
-            {
-                await peopleRepository.AddListAddressesAsync(addresses);
-            }
-
-            List<Email> emails = request.Emails;
-
-            if (emails == null || !emails.Any())
-            { return BadRequest("empty List email"); }
-
-            else
-            {
-                await peopleRepository.AddListEmailAddressesAsync(emails);
+                var person = new Person
+                {
+                    FirstName = persons.FirstName,
+                    LastName = persons.LastName,
+                    Email = persons.Email,
+                };
+                await peopleRepository.AddPersonNameAsync(person);
             }
 
             return Ok();
 
         }
+        [HttpGet]
+        public async Task <List<PersonDto>> GetPeople()
+        {
+          var allPeopleList= await peopleRepository.GetPeopleAsync();
+    
+            var peopleDTO = allPeopleList.Select(person => new PersonDto
+            {
+                Id = person.Id,
+                FirstName = person.FirstName,
+                LastName = person.LastName,
+                Email= person.Email,
+            }).ToList();
+
+
+            return peopleDTO;
+        }
+        
     }
 }

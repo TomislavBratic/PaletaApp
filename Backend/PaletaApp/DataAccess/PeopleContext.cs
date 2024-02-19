@@ -10,8 +10,8 @@ namespace PaletaApp.DataAccess
     {
         public PeopleContext(DbContextOptions options) : base(options) { }
         public DbSet<Person> People { get; set; }
-        public DbSet<Email> Emails { get; set; }
         public DbSet<Address> Adresses { get; set; }
+        public DbSet<Blog> Blogs { get; set; }
 
     }
 }

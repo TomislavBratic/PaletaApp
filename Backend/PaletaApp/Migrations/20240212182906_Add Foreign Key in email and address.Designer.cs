@@ -10,8 +10,8 @@ using PaletaApp.DataAccess;
 namespace PaletaApp.Migrations
 {
     [DbContext(typeof(PeopleContext))]
-    [Migration("20240211195237_Add Foreign Key")]
-    partial class AddForeignKey
+    [Migration("20240212182906_Add Foreign Key in email and address")]
+    partial class AddForeignKeyinemailandaddress
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -33,7 +33,7 @@ namespace PaletaApp.Migrations
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
 
-                    b.Property<int?>("PersonId")
+                    b.Property<int>("PersonId")
                         .HasColumnType("int");
 
                     b.Property<string>("PostCode")
@@ -107,7 +107,7 @@ namespace PaletaApp.Migrations
                         .HasColumnType("nvarchar(200)")
                         .HasMaxLength(200);
 
-                    b.Property<int?>("PersonId")
+                    b.Property<int>("PersonId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -143,7 +143,9 @@ namespace PaletaApp.Migrations
                 {
                     b.HasOne("PaletaApp.Models.Person", null)
                         .WithMany("Addresses")
-                        .HasForeignKey("PersonId");
+                        .HasForeignKey("PersonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("PaletaApp.Models.Blog", b =>
@@ -157,7 +159,9 @@ namespace PaletaApp.Migrations
                 {
                     b.HasOne("PaletaApp.Models.Person", null)
                         .WithMany("Emails")
-                        .HasForeignKey("PersonId");
+                        .HasForeignKey("PersonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
