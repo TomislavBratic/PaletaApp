@@ -9,7 +9,9 @@
     margin-top: auto;
     align-items: center;
     justify-content: space-between;
-    padding: 8px; /* Add padding as needed */
+    position:static;
+     /* Add padding as needed */
+    height:15%;
   }
   
   .footer-icons {
