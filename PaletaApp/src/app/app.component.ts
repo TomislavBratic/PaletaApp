@@ -8,6 +8,7 @@ import { FamilyfarmComponent } from './components/familyfarm/familyfarm.componen
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { FooterComponent } from './components/footer/footer.component';
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -17,5 +18,5 @@ import { FooterComponent } from './components/footer/footer.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'BanakApp';
+  title = 'PaletaApp';
 }

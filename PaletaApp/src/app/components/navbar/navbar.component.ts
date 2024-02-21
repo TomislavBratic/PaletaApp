@@ -16,5 +16,5 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-  imagePath = 'C:\BanakFrontendApp\BanakApp\src\app\assets\bench.png';
+  imagePath = 'C:\BanakFrontendApp\PaletaApp\src\app\assets\bench.png';
 }
