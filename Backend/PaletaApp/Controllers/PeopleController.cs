@@ -58,6 +58,25 @@ namespace PaletaApp.Controllers
 
             return peopleDTO;
         }
-        
+
+        [HttpPost]
+        [Route("person")]
+        public async Task<IActionResult> CreatePerson(PersonDto request)
+        {
+                var person = new Person
+                {
+                    FirstName = request.FirstName,
+                    LastName = request.LastName,
+                    Email = request.Email,
+                };
+                await peopleRepository.AddPersonNameAsync(person);
+
+                return Ok();
+        }
+
+  
+
+        }
+
     }
-}
+

@@ -8,12 +8,13 @@ import { FamilyfarmComponent } from './components/familyfarm/familyfarm.componen
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { FooterComponent } from './components/footer/footer.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [CommonModule, RouterOutlet,MatSlideToggleModule,FooterComponent,
-    NavbarComponent,SearchbarComponent,FamilyfarmComponent,MatGridListModule,MatPaginatorModule],
+    NavbarComponent,SearchbarComponent,FamilyfarmComponent,MatGridListModule,MatPaginatorModule,HttpClientModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

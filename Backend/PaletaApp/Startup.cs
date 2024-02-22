@@ -50,6 +50,12 @@ namespace PaletaApp
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseCors(options =>
+            {
+                options.AllowAnyMethod();
+                options.AllowAnyOrigin();
+                options.AllowAnyHeader();
+            });
 
             app.UseAuthorization();
 
