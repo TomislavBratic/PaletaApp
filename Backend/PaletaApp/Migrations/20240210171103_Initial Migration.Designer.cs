@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace PaletaApp.Migrations
 {
-    [DbContext(typeof(PeopleContext))]
+    [DbContext(typeof(UserContext))]
     [Migration("20240210171103_Initial Migration")]
     partial class InitialMigration
     {

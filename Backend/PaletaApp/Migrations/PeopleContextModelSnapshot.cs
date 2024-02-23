@@ -8,7 +8,7 @@ using PaletaApp.DataAccess;
 
 namespace PaletaApp.Migrations
 {
-    [DbContext(typeof(PeopleContext))]
+    [DbContext(typeof(UserContext))]
     partial class PeopleContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
@@ -31,9 +31,6 @@ namespace PaletaApp.Migrations
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
 
-                    b.Property<int?>("PersonId")
-                        .HasColumnType("int");
-
                     b.Property<string>("PostCode")
                         .IsRequired()
                         .HasColumnType("varchar(10)")
@@ -49,9 +46,12 @@ namespace PaletaApp.Migrations
                         .HasColumnType("nvarchar(200)")
                         .HasMaxLength(200);
 
+                    b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("PersonId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Adresses");
                 });
@@ -74,9 +74,6 @@ namespace PaletaApp.Migrations
                     b.Property<int>("LikeCount")
                         .HasColumnType("int");
 
-                    b.Property<int?>("PersonId")
-                        .HasColumnType("int");
-
                     b.Property<bool>("Status")
                         .HasColumnType("bit")
                         .HasMaxLength(50);
@@ -86,14 +83,17 @@ namespace PaletaApp.Migrations
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
 
+                    b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("PersonId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Blogs");
                 });
 
-            modelBuilder.Entity("PaletaApp.Models.Person", b =>
+            modelBuilder.Entity("PaletaApp.Models.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -101,9 +101,7 @@ namespace PaletaApp.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -115,23 +113,29 @@ namespace PaletaApp.Migrations
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
 
+                    b.Property<byte[]>("PasswordHash")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<byte[]>("PasswordSalt")
+                        .HasColumnType("varbinary(max)");
+
                     b.HasKey("Id");
 
-                    b.ToTable("People");
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("PaletaApp.Models.Address", b =>
                 {
-                    b.HasOne("PaletaApp.Models.Person", null)
+                    b.HasOne("PaletaApp.Models.User", null)
                         .WithMany("Addresses")
-                        .HasForeignKey("PersonId");
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("PaletaApp.Models.Blog", b =>
                 {
-                    b.HasOne("PaletaApp.Models.Person", null)
+                    b.HasOne("PaletaApp.Models.User", null)
                         .WithMany("Blogs")
-                        .HasForeignKey("PersonId");
+                        .HasForeignKey("UserId");
                 });
 #pragma warning restore 612, 618
         }

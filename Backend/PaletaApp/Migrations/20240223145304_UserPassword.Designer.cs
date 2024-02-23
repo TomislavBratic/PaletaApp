@@ -10,8 +10,8 @@ using PaletaApp.DataAccess;
 namespace PaletaApp.Migrations
 {
     [DbContext(typeof(UserContext))]
-    [Migration("20240212185825_Updating Email string")]
-    partial class UpdatingEmailstring
+    [Migration("20240223145304_UserPassword")]
+    partial class UserPassword
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -103,9 +103,7 @@ namespace PaletaApp.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -116,6 +114,12 @@ namespace PaletaApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
+
+                    b.Property<byte[]>("PasswordHash")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<byte[]>("PasswordSalt")
+                        .HasColumnType("varbinary(max)");
 
                     b.HasKey("Id");
 

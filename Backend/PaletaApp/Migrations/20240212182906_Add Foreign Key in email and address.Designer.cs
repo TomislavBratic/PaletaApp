@@ -9,7 +9,7 @@ using PaletaApp.DataAccess;
 
 namespace PaletaApp.Migrations
 {
-    [DbContext(typeof(PeopleContext))]
+    [DbContext(typeof(UserContext))]
     [Migration("20240212182906_Add Foreign Key in email and address")]
     partial class AddForeignKeyinemailandaddress
     {

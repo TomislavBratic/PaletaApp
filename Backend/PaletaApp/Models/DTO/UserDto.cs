@@ -1,23 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Text;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace PaletaApp.Models
+namespace PaletaApp.Models.DTO
 {
-   public class Person
+    public class UserDto
     {
-        [Key]
         public int Id { get; set; }
-        [Required]
+
         [MaxLength(100)]
         public string FirstName { get; set; }
         [Required]
         [MaxLength(100)]
-        public string  LastName { get; set; }
+        public string LastName { get; set; }
         [Required]
         [MaxLength(100)]
         public string Email { get; set; }
+        [Required]
+        public string Password { get; set; }
         public List<Address> Addresses { get; set; } = new List<Address>();
         public List<Blog> Blogs { get; set; } = new List<Blog>();
     }

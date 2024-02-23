@@ -12,7 +12,7 @@ export class PersonService {
   constructor(private http:HttpClient) { }
   
   addPerson(model:AddPersonRequest):Observable<void>{
-    return this.http.post<void>('https://localhost:44330/api/People/person',model)
+    return this.http.post<void>('https://localhost:44330/api/User/register',model)
   }
   
 }

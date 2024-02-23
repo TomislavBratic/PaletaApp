@@ -6,10 +6,10 @@ using System.Text;
 
 namespace PaletaApp.DataAccess
 {
-   public class PeopleContext : DbContext
+   public class UserContext : DbContext
     {
-        public PeopleContext(DbContextOptions options) : base(options) { }
-        public DbSet<Person> People { get; set; }
+        public UserContext(DbContextOptions options) : base(options) { }
+        public DbSet<User> Users { get; set; }
         public DbSet<Address> Adresses { get; set; }
         public DbSet<Blog> Blogs { get; set; }
 

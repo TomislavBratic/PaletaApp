@@ -33,9 +33,10 @@ export class RegistrationComponent {
   
   constructor(private personService:PersonService, public dialog: MatDialog){
     this.model={
-      FirstName:'Ante',
+      FirstName:'',
       LastName:'',
-      Email:''
+      Email:'',
+      Password:'',
     };
   }
 

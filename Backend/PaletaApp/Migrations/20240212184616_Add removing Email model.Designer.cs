@@ -9,7 +9,7 @@ using PaletaApp.DataAccess;
 
 namespace PaletaApp.Migrations
 {
-    [DbContext(typeof(PeopleContext))]
+    [DbContext(typeof(UserContext))]
     [Migration("20240212184616_Add removing Email model")]
     partial class AddremovingEmailmodel
     {

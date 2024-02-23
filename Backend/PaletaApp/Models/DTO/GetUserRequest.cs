@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PaletaApp.Models.DTO
 {
-    public class GetPersonRequest
+    public class GetUserRequest
     {
         [Required]
         [MaxLength(100)]

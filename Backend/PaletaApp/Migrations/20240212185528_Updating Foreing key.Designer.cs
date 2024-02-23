@@ -9,7 +9,7 @@ using PaletaApp.DataAccess;
 
 namespace PaletaApp.Migrations
 {
-    [DbContext(typeof(PeopleContext))]
+    [DbContext(typeof(UserContext))]
     [Migration("20240212185528_Updating Foreing key")]
     partial class UpdatingForeingkey
     {

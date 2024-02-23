@@ -30,12 +30,12 @@ namespace PaletaApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<PeopleContext>(options =>
+            services.AddDbContext<UserContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("PaletaAppConnectionString"));
             });
 
-            services.AddScoped<IPeopleRepository, PeopleRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
          
         }
 
