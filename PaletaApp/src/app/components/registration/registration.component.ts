@@ -1,7 +1,7 @@
 import { CommonModule, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { AddPersonRequest } from '../../models/PersonRequest.model';
+import { LoginRequest, RegistrationRequest } from '../../models/PersonRequest.model';
 import { PersonService } from '../../services/person.service';
 import { HttpClientModule } from '@angular/common/http';
 import {
@@ -26,16 +26,21 @@ import { DialogComponent } from '../dialog/dialog.component';
   styleUrl: './registration.component.css'
 })
 export class RegistrationComponent {
-
   isSignupFormVisible: boolean = true;
-
-  model:AddPersonRequest
+  Registration:RegistrationRequest;
+  Login:LoginRequest;
   
   constructor(private personService:PersonService, public dialog: MatDialog){
-    this.model={
+    this.Registration={
+      UserName:'',
       FirstName:'',
       LastName:'',
       Email:'',
+      Password:'',
+    };
+
+    this.Login={
+      UserName:'',
       Password:'',
     };
   }
@@ -45,7 +50,7 @@ export class RegistrationComponent {
   }
 
   signup() {
-  this.personService.addPerson(this.model)
+  this.personService.Registration(this.Registration)
   .subscribe({
     next:(response) =>{
      var header="Thank you for registration";
@@ -61,7 +66,19 @@ export class RegistrationComponent {
   }
 
   signin() {
-    // Handle signin logic here
+    this.personService.Login(this.Registration)
+    .subscribe({
+      next:(response) =>{
+       var header="Thank you for login";
+       var message="You successfully registered account!";
+        this.openDialog('0ms', '0ms',header,message)
+      },
+      error:(response) =>{
+        var header="Oooops!";
+        var message="Login failed!";
+         this.openDialog('0ms', '0ms',header,message)
+       },
+    });
   }
 
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string,header:string,message:string): void {

@@ -10,6 +10,7 @@ namespace PaletaApp.Repositories.Interfaces
     {
         Task<User> AddUserNameAsync(User person);
         Task<List<User>> GetUsersAsync();
-        Task<bool> CheckUserName(string FirstName, string LastName);
+        Task<bool> CheckUserName(string UserName);
+        Task<User> GetUserName(string UserName);
     }
 }

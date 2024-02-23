@@ -1,0 +1,22 @@
+<ng-template width="250px" height="" let-data *ngIf='data.name == "success"'>
+
+<h2 mat-dialog-title>Thank you for registration</h2>
+<mat-dialog-content>
+  You successfully registered account!
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>{{data.name}}</button>
+</mat-dialog-actions>
+</ng-template>
+
+<ng-template #failedForm width="250px" height="100px">
+  <div>
+  <h2 mat-dialog-title>Ooops!</h2>
+  <mat-dialog-content>
+    Spmething went wrong!
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button mat-dialog-close>Ok</button>
+  </mat-dialog-actions>
+  </div>
+  </ng-template>

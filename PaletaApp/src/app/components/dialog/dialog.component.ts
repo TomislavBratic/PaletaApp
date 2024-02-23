@@ -1,9 +1,5 @@
 import { CommonModule, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { AddPersonRequest } from '../../models/PersonRequest.model';
-import { PersonService } from '../../services/person.service';
-import { HttpClientModule } from '@angular/common/http';
 import { DialogModule } from '@angular/cdk/dialog';
 import {
   MatDialog,

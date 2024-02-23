@@ -11,6 +11,9 @@ namespace PaletaApp.Models
         public int Id { get; set; }
         [Required]
         [MaxLength(100)]
+        public string UserName { get; set; }
+        [Required]
+        [MaxLength(100)]
         public string FirstName { get; set; }
         [Required]
         [MaxLength(100)]

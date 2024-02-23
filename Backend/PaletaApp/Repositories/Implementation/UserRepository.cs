@@ -32,10 +32,15 @@ namespace PaletaApp.Repositories.Implementation
             return persons;
         }
 
-        public async Task<bool> CheckUserName(string FirstName,string LastName)
+        public async Task<bool> CheckUserName(string UserName)
         {
-           return await dbContext.Users.Where(x => x.FirstName == FirstName).AnyAsync(x => x.LastName == LastName);
+           return await dbContext.Users.AnyAsync(x => x.UserName == UserName);
 
+        }
+
+        public async Task<User> GetUserName(string UserName)
+        {
+            return await dbContext.Users.SingleOrDefaultAsync(x => x.UserName == UserName);
         }
 
     }

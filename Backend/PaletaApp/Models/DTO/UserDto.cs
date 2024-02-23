@@ -11,6 +11,9 @@ namespace PaletaApp.Models.DTO
         public int Id { get; set; }
 
         [MaxLength(100)]
+        [Required]
+        public string UserName { get; set; }
+        [MaxLength(100)]
         public string FirstName { get; set; }
         [Required]
         [MaxLength(100)]
