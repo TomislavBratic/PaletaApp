@@ -14,6 +14,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using PaletaApp.Repositories.Interfaces;
 using PaletaApp.Repositories.Implementation;
+using PaletaApp.Services;
 
 namespace PaletaApp
 {
@@ -36,6 +37,7 @@ namespace PaletaApp
             });
 
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<ITokenService, TokenService>();
          
         }
 

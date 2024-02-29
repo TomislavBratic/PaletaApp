@@ -19,14 +19,16 @@ namespace PaletaApp.Controllers
     public class UserController : BaseController
     {
         private readonly IUserRepository userRepository;
+        private readonly ITokenService tokenService;
 
-        public UserController(IUserRepository userRepository)
+        public UserController(IUserRepository userRepository, ITokenService tokenService)
         {
             this.userRepository = userRepository;
+            this.tokenService = tokenService;
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateUsers(List<UserDto> request)
+        public async Task<IActionResult> CreateUsers(List<ListUserDto> request)
         {
            
             foreach(var persons in request)
@@ -44,11 +46,11 @@ namespace PaletaApp.Controllers
 
         }
         [HttpGet]
-        public async Task <List<UserDto>> GetPeople()
+        public async Task <List<ListUserDto>> GetPeople()
         {
           var allPeopleList= await userRepository.GetUsersAsync();
     
-            var peopleDTO = allPeopleList.Select(user => new UserDto
+            var peopleDTO = allPeopleList.Select(user => new ListUserDto
             {
                 Id = user.Id,
                 UserName= user.UserName,
@@ -63,29 +65,34 @@ namespace PaletaApp.Controllers
 
         [HttpPost]
         [Route("register")]
-        public async Task<IActionResult> CreatePerson(UserDto request)
+        public async Task<ActionResult<UserDto>> CreatePerson(RegisterDto request)
         {
             if (await UserExists(request.UserName)) return BadRequest("User Name is Taken");
 
-                var hmac = new HMACSHA512();
+            var hmac = new HMACSHA512();
 
-                var person = new User
-                {
-                    UserName=request.UserName.ToLower(),
-                    FirstName = request.FirstName.ToLower(),
-                    LastName = request.LastName.ToLower(),
-                    Email = request.Email,
-                    PasswordHash=hmac.ComputeHash(Encoding.UTF8.GetBytes(request.Password)),
-                    PasswordSalt=hmac.Key
-                };
-                await userRepository.AddUserNameAsync(person);
+            var user = new User
+            {
+                UserName = request.UserName.ToLower(),
+                FirstName = request.FirstName.ToLower(),
+                LastName = request.LastName.ToLower(),
+                Email = request.Email,
+                PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(request.Password)),
+                PasswordSalt = hmac.Key
+            };
+            await userRepository.AddUserNameAsync(user);
 
-                return Ok();
+            return new UserDto
+            {
+                UserName = user.UserName,
+                Token = tokenService.CreateToken(user)
+
+             };
         }
 
         [HttpPost]
         [Route("login")]
-        public async Task<IActionResult> LoginPerson(LoginDTO request)
+        public async Task<ActionResult<UserDto>> LoginPerson(LoginDTO request)
         {
             var user = await userRepository.GetUserName(request.UserName);
             if (user == null) return Unauthorized("Invalid username");
@@ -97,9 +104,14 @@ namespace PaletaApp.Controllers
             {
                 if (computedHash[i] != user.PasswordHash[i]) return Unauthorized("Invalid password");
             }
-           
 
-            return Ok();
+            return new UserDto
+            {
+                UserName = user.UserName,
+                Token = tokenService.CreateToken(user)
+
+            };
+
         }
 
 

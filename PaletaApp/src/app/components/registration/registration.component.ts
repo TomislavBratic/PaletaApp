@@ -26,7 +26,13 @@ import { DialogComponent } from '../dialog/dialog.component';
   styleUrl: './registration.component.css'
 })
 export class RegistrationComponent {
-  isSignupFormVisible: boolean = true;
+
+  action: 'login' | 'register' = 'login';
+
+  switchTo(action: 'login' | 'register') {
+    this.action = action;
+  }
+
   Registration:RegistrationRequest;
   Login:LoginRequest;
   
@@ -44,11 +50,6 @@ export class RegistrationComponent {
       Password:'',
     };
   }
-
-  toggleForm() {
-    this.isSignupFormVisible = !this.isSignupFormVisible;
-  }
-
   signup() {
   this.personService.Registration(this.Registration)
   .subscribe({
@@ -66,11 +67,11 @@ export class RegistrationComponent {
   }
 
   signin() {
-    this.personService.Login(this.Registration)
+    this.personService.Login(this.Login)
     .subscribe({
       next:(response) =>{
        var header="Thank you for login";
-       var message="You successfully registered account!";
+       var message="You successfully sign in your account!";
         this.openDialog('0ms', '0ms',header,message)
       },
       error:(response) =>{

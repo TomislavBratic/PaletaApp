@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace PaletaApp.Models.DTO
 {
-    public class GetUserRequest
+    public class RegisterDto
     {
+        [MaxLength(100)]
         [Required]
+        public string UserName { get; set; }
         [MaxLength(100)]
         public string FirstName { get; set; }
         [Required]
@@ -18,8 +19,7 @@ namespace PaletaApp.Models.DTO
         [Required]
         [MaxLength(100)]
         public string Email { get; set; }
-        public List<Address> Addresses { get; set; } = new List<Address>();
-        public List<Blog> Blogs { get; set; } = new List<Blog>();
-
+        [Required]
+        public string Password { get; set; }
     }
 }
