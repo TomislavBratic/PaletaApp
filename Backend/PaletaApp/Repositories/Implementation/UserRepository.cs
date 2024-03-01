@@ -43,5 +43,9 @@ namespace PaletaApp.Repositories.Implementation
             return await dbContext.Users.SingleOrDefaultAsync(x => x.UserName == UserName);
         }
 
+        public async Task<User> GetUserDetail(int id)
+        {
+            return await dbContext.Users.FindAsync(id);
+        }
     }
 }

@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using PaletaApp.Repositories.Interfaces;
 using System.Security.Cryptography;
 using System.Text;
+using Microsoft.AspNetCore.Authorization;
 
 namespace PaletaApp.Controllers
 {
@@ -45,6 +46,8 @@ namespace PaletaApp.Controllers
             return Ok();
 
         }
+
+        [AllowAnonymous]
         [HttpGet]
         public async Task <List<ListUserDto>> GetPeople()
         {
@@ -61,6 +64,23 @@ namespace PaletaApp.Controllers
 
 
             return peopleDTO;
+        }
+
+        [Authorize]
+        [HttpGet("{id}")]
+        public async Task<ActionResult<UserDetailDto>>GetUserDetail(int id)
+        {
+            var userDetail= await userRepository.GetUserDetail(id);
+
+            var UserDetailDTO = new UserDetailDto
+            {
+                UserName = userDetail.UserName,
+                FirstName = userDetail.FirstName,
+                LastName = userDetail.LastName,
+                Email = userDetail.Email,
+            };
+
+            return UserDetailDTO;
         }
 
         [HttpPost]
@@ -113,7 +133,6 @@ namespace PaletaApp.Controllers
             };
 
         }
-
 
         private async Task<bool> UserExists(string UserName)
         {

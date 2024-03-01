@@ -12,5 +12,6 @@ namespace PaletaApp.Repositories.Interfaces
         Task<List<User>> GetUsersAsync();
         Task<bool> CheckUserName(string UserName);
         Task<User> GetUserName(string UserName);
+        Task<User> GetUserDetail(int id);
     }
 }

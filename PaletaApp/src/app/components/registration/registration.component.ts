@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { LoginRequest, RegistrationRequest } from '../../models/PersonRequest.model';
 import { PersonService } from '../../services/person.service';
 import { HttpClientModule } from '@angular/common/http';
+import { MatFormField } from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 import {
   MatDialog,
   MAT_DIALOG_DATA,
@@ -21,7 +23,7 @@ import { DialogComponent } from '../dialog/dialog.component';
 @Component({
   selector: 'app-registration',
   standalone: true,
-  imports: [CommonModule,FormsModule,NgIf,HttpClientModule],
+  imports: [CommonModule,FormsModule,NgIf,HttpClientModule,MatFormField,MatInputModule],
   templateUrl: './registration.component.html',
   styleUrl: './registration.component.css'
 })

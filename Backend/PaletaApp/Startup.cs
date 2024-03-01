@@ -15,6 +15,10 @@ using System.Threading.Tasks;
 using PaletaApp.Repositories.Interfaces;
 using PaletaApp.Repositories.Implementation;
 using PaletaApp.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using PaletaApp.Extensions;
 
 namespace PaletaApp
 {
@@ -30,14 +34,11 @@ namespace PaletaApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddApplicationServices(Configuration);
             services.AddControllers();
-            services.AddDbContext<UserContext>(options =>
-            {
-                options.UseSqlServer(Configuration.GetConnectionString("PaletaAppConnectionString"));
-            });
-
-            services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<ITokenService, TokenService>();
+            services.AddIdentityServices(Configuration);
+           
+                
          
         }
 
@@ -59,6 +60,7 @@ namespace PaletaApp
                 options.AllowAnyHeader();
             });
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
