@@ -1,0 +1,19 @@
+<mat-toolbar color="warn">
+   <img src="../../../assets/vegetable_bowl_navbar.png" width="40px" height="40px"
+    routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page" alt="Bench Logo">
+
+    <button *ngIf="personService.CurrentUser$ | async" class="menu" mat-button>Menu</button>
+    <button *ngIf="personService.CurrentUser$ | async" class="home"routerLink="/home" mat-button>Home</button>
+    <span class="spacer"></span>
+    <app-searchbar></app-searchbar>
+    <button *ngIf="personService.CurrentUser$ | async" routerLink="/"  routerLinkActive="active" ariaCurrentWhenActive="page" class="about" mat-button >About</button>
+    <button *ngIf="(personService.CurrentUser$ | async)===null" routerLink="/registration" class="registration" mat-button >Sign in</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>Profile</button>
+      <button mat-menu-item>About</button>
+      <button mat-menu-item (click)="logout()">Logout</button>
+    </mat-menu>
+    <button *ngIf="personService.CurrentUser$ | async" mat-icon-button [matMenuTriggerFor]="menu" class="mat-icon-button">
+    <mat-icon class="icon-list" aria-hidden="false" aria-label="Example heart icon">list</mat-icon>
+    </button>
+</mat-toolbar>

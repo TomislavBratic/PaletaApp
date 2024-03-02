@@ -1,0 +1,63 @@
+﻿[
+  {
+    "FirstName": "Victoria",
+    "LastName": "Garrett",
+    "Addresses": [
+      {
+        "StreetAddress": "Jodie Court",
+        "City": "Emory",
+        "State": "Illinois",
+        "PostCode": "8,718"
+      },
+      {
+        "StreetAddress": "Highlawn Avenue",
+        "City": "Gilgo",
+        "State": "Missouri",
+        "PostCode": "6,773"
+      }
+    ],
+    "Emails": [
+      {
+        "EmailAddress": "justicedowns@golistic.com"
+      },
+      {
+        "EmailAddress": "janelleacevedo@calcula.com"
+      },
+      {
+        "EmailAddress": "rochaschwartz@zepitope.com"
+      },
+      {
+        "EmailAddress": "elisebray@caxt.com"
+      }
+    ]
+  },
+  {
+    "FirstName": "Strickland",
+    "LastName": "Ellis",
+    "Addresses": [
+      {
+        "StreetAddress": "Ferris Street",
+        "City": "Mathews",
+        "State": "Alaska",
+        "PostCode": "5,198"
+      },
+      {
+        "StreetAddress": "Lawrence Avenue",
+        "City": "Caspar",
+        "State": "Alabama",
+        "PostCode": "2,671"
+      },
+      {
+        "StreetAddress": "Meserole Avenue",
+        "City": "Witmer",
+        "State": "Wisconsin",
+        "PostCode": "9,277"
+      }
+    ],
+    "Emails": [
+      {
+        "EmailAddress": "jillclements@cubicide.com"
+      }
+    ]
+  }
+]
