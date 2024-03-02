@@ -3,12 +3,12 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 
 @Component({
-  selector: 'app-familyfarm',
+  selector: 'app-blog',
   standalone: true,
   imports: [MatButtonModule,MatCardModule],
-  templateUrl: './familyfarm.component.html',
-  styleUrl: './familyfarm.component.css'
+  templateUrl: './blog.component.html',
+  styleUrl: './blog.component.css'
 })
-export class FamilyfarmComponent {
+export class BlogComponent {
 
 }

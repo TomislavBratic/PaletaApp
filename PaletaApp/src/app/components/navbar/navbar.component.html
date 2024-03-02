@@ -7,7 +7,7 @@
     <span class="spacer"></span>
     <app-searchbar></app-searchbar>
     <button *ngIf="personService.CurrentUser$ | async" routerLink="/"  routerLinkActive="active" ariaCurrentWhenActive="page" class="about" mat-button >About</button>
-    <button  routerLink="/registration" class="registration" mat-button >Registration</button>
+    <button *ngIf="(personService.CurrentUser$ | async)===null" routerLink="/registration" class="registration" mat-button >Sign in</button>
     <mat-menu #menu="matMenu">
       <button mat-menu-item>Profile</button>
       <button mat-menu-item>About</button>

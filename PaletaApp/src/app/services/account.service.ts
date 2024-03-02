@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { LoginRequest, RegistrationRequest, User } from '../models/PersonRequest.model';
+import { LoginRequest, RegistrationRequest, User } from '../models/Account.model';
 import { Observable, ReplaySubject, empty, map } from 'rxjs';
 import { response } from 'express';
 

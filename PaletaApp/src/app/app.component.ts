@@ -4,19 +4,19 @@ import { RouterOutlet } from '@angular/router';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SearchbarComponent } from './components/searchbar/searchbar.component';
-import { FamilyfarmComponent } from './components/familyfarm/familyfarm.component';
+import { BlogComponent } from './components/blog/blog.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { FooterComponent } from './components/footer/footer.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { User } from './models/PersonRequest.model';
-import { PersonService } from './services/person.service';
+import { User } from './models/Account.model';
+import { PersonService } from './services/account.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [CommonModule, RouterOutlet,MatSlideToggleModule,FooterComponent,
-    NavbarComponent,SearchbarComponent,FamilyfarmComponent,MatGridListModule,MatPaginatorModule,HttpClientModule],
+    NavbarComponent,SearchbarComponent,BlogComponent,MatGridListModule,MatPaginatorModule,HttpClientModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

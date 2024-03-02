@@ -6,7 +6,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { SearchbarComponent } from '../searchbar/searchbar.component';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import {MatSelectModule} from '@angular/material/select';
-import { PersonService } from '../../services/person.service';
+import { PersonService } from '../../services/account.service';
 import { CommonModule,NgIf } from '@angular/common';
 @Component({
   selector: 'app-navbar',

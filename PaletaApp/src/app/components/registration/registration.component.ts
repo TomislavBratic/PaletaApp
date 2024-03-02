@@ -1,8 +1,8 @@
 import { CommonModule, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { LoginRequest, RegistrationRequest, User } from '../../models/PersonRequest.model';
-import { PersonService } from '../../services/person.service';
+import { LoginRequest, RegistrationRequest, User } from '../../models/Account.model';
+import { PersonService } from '../../services/account.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MatFormField } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
