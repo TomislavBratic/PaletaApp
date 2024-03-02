@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -9,6 +9,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { FooterComponent } from './components/footer/footer.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { User } from './models/PersonRequest.model';
+import { PersonService } from './services/person.service';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +20,22 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'PaletaApp';
+
+
+constructor(private personService:PersonService){
+
 }
+  ngOnInit(){
+    this.setCurrentUser();
+  }
+  
+  setCurrentUser(){
+    if (typeof localStorage !== 'undefined'){
+      const user:User=JSON.parse(localStorage.getItem('user')|| '{}');
+      this.personService.setCurrentUser(user);
+    }
+    }
+}
+

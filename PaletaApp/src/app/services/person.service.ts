@@ -1,13 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { LoginRequest, RegistrationRequest } from '../models/PersonRequest.model';
-import { Observable } from 'rxjs';
+import { LoginRequest, RegistrationRequest, User } from '../models/PersonRequest.model';
+import { Observable, ReplaySubject, empty, map } from 'rxjs';
+import { response } from 'express';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PersonService {
+  private CurrentUserSource=new ReplaySubject<User|null>(1);
+  CurrentUser$=this.CurrentUserSource.asObservable();
 
   constructor(private http:HttpClient) { }
   
@@ -16,6 +19,23 @@ export class PersonService {
   }
   
   Login(model:LoginRequest):Observable<void>{
-    return this.http.post<void>('https://localhost:44330/api/User/login',model)
+    return this.http.post<User>('https://localhost:44330/api/User/login',model).pipe(
+      map((response:User)=>{
+        const user=response;
+        if(user){
+          localStorage.setItem('user',JSON.stringify(user));
+          this.CurrentUserSource.next(user);
+        }
+      })
+    )
+  }
+
+  setCurrentUser(user:User){
+    this.CurrentUserSource.next(user);
+  }
+
+  Logout() {
+    localStorage.removeItem('user');
+    this.CurrentUserSource.next(null);
   }
 }

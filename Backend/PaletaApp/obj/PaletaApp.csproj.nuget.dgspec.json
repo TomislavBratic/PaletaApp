@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ticbra\\source\\repos\\PaletaApp\\PaletaApp\\PaletaApp.csproj": {}
+    "C:\\PaletaFrontendApp\\Backend\\PaletaApp\\PaletaApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ticbra\\source\\repos\\PaletaApp\\PaletaApp\\PaletaApp.csproj": {
+    "C:\\PaletaFrontendApp\\Backend\\PaletaApp\\PaletaApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ticbra\\source\\repos\\PaletaApp\\PaletaApp\\PaletaApp.csproj",
+        "projectUniqueName": "C:\\PaletaFrontendApp\\Backend\\PaletaApp\\PaletaApp.csproj",
         "projectName": "PaletaApp",
-        "projectPath": "C:\\Users\\Ticbra\\source\\repos\\PaletaApp\\PaletaApp\\PaletaApp.csproj",
+        "projectPath": "C:\\PaletaFrontendApp\\Backend\\PaletaApp\\PaletaApp.csproj",
         "packagesPath": "C:\\Users\\Ticbra\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ticbra\\source\\repos\\PaletaApp\\PaletaApp\\obj\\",
+        "outputPath": "C:\\PaletaFrontendApp\\Backend\\PaletaApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ticbra\\AppData\\Roaming\\NuGet\\NuGet.Config",

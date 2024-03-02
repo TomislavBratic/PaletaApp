@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PDR0LvLbxKkPlwJ58IKYWWSOKWf4wnFvw0QzbelepZb5ltu+8+GWPrIqkYscGwG0Jnpb+zxjw86mnBimfV5waw==",
+  "dgSpecHash": "PCzdipRJj0vmTGgziaYAlo5gjH9azVhKT6QgRwuXkHPyFK7h1y0wqDM/46hgLd6IMhONnRULLvY2YEeY2CaTRg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Ticbra\\source\\repos\\PaletaApp\\PaletaApp\\PaletaApp.csproj",
+  "projectFilePath": "C:\\PaletaFrontendApp\\Backend\\PaletaApp\\PaletaApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ticbra\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.0\\microsoft.aspnetcore.authentication.jwtbearer.3.1.0.nupkg.sha512",
     "C:\\Users\\Ticbra\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.0\\microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",

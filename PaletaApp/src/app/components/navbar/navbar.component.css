@@ -16,4 +16,20 @@
   .contact {
     width: 20px;
   }
+
+  .example-button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.example-button:focus {
+  outline: none; 
+}
+
+.example-button:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+  padding: 8px;
+}
   

@@ -1,7 +1,7 @@
 import { CommonModule, NgIf } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { LoginRequest, RegistrationRequest } from '../../models/PersonRequest.model';
+import { LoginRequest, RegistrationRequest, User } from '../../models/PersonRequest.model';
 import { PersonService } from '../../services/person.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MatFormField } from '@angular/material/form-field';
@@ -15,8 +15,6 @@ import {
   MatDialogActions,
   MatDialogClose,
 } from '@angular/material/dialog';
-import { MatButtonModule } from '@angular/material/button';
-import { Inject } from '@angular/core';
 import { DialogComponent } from '../dialog/dialog.component';
 
 
@@ -27,7 +25,7 @@ import { DialogComponent } from '../dialog/dialog.component';
   templateUrl: './registration.component.html',
   styleUrl: './registration.component.css'
 })
-export class RegistrationComponent {
+export class RegistrationComponent{
 
   action: 'login' | 'register' = 'login';
 
@@ -37,19 +35,19 @@ export class RegistrationComponent {
 
   Registration:RegistrationRequest;
   Login:LoginRequest;
-  
+
   constructor(private personService:PersonService, public dialog: MatDialog){
     this.Registration={
-      UserName:'',
-      FirstName:'',
-      LastName:'',
-      Email:'',
-      Password:'',
+      username:'',
+      firstname:'',
+      lastname:'',
+      email:'',
+      password:'',
     };
 
     this.Login={
-      UserName:'',
-      Password:'',
+      username:'',
+      password:'',
     };
   }
   signup() {
@@ -96,4 +94,3 @@ export class RegistrationComponent {
   }
   
 }
-
