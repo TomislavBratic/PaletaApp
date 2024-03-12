@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace PaletaApp.Models
+namespace PaletaApp.Models.DTO.Blogs
 {
-    public class Blog
+    public class BlogListDto
     {
         [Key]
         public int Id { get; set; }
@@ -23,8 +23,6 @@ namespace PaletaApp.Models
         [Required]
         public int LikeCount { get; set; }
         [Required]
-        [ForeignKey("User")]
         public int UserId { get; set; }
-        public User User { get; set; }
     }
 }

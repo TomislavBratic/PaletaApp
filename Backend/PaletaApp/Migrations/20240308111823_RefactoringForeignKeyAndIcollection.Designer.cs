@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PaletaApp.DataAccess;
 
 namespace PaletaApp.Migrations
 {
     [DbContext(typeof(UserContext))]
-    partial class PeopleContextModelSnapshot : ModelSnapshot
+    [Migration("20240308111823_RefactoringForeignKeyAndIcollection")]
+    partial class RefactoringForeignKeyAndIcollection
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -46,7 +48,7 @@ namespace PaletaApp.Migrations
                         .HasColumnType("nvarchar(200)")
                         .HasMaxLength(200);
 
-                    b.Property<int>("UserId")
+                    b.Property<int?>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -75,7 +77,8 @@ namespace PaletaApp.Migrations
                         .HasColumnType("int");
 
                     b.Property<bool>("Status")
-                        .HasColumnType("bit");
+                        .HasColumnType("bit")
+                        .HasMaxLength(50);
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -118,7 +121,7 @@ namespace PaletaApp.Migrations
                     b.Property<byte[]>("PasswordSalt")
                         .HasColumnType("varbinary(max)");
 
-                    b.Property<string>("Username")
+                    b.Property<string>("UserName")
                         .IsRequired()
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
@@ -130,11 +133,9 @@ namespace PaletaApp.Migrations
 
             modelBuilder.Entity("PaletaApp.Models.Address", b =>
                 {
-                    b.HasOne("PaletaApp.Models.User", "User")
+                    b.HasOne("PaletaApp.Models.User", null)
                         .WithMany("Addresses")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("PaletaApp.Models.Blog", b =>

@@ -27,5 +27,10 @@ namespace PaletaApp.Models
         [MaxLength(10)]
         [Column(TypeName = "varchar(10)")]
         public string PostCode { get; set; }
+
+        [Required]
+        [ForeignKey("User")]
+        public int UserId { get; set; }
+        public User User { get; set; }
     }
 }

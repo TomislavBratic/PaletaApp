@@ -22,6 +22,7 @@ namespace PaletaApp.Extensions
             });  
 
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IBlogRepository,BlogRepository>();
             services.AddScoped<ITokenService, TokenService>();
 
             return services;

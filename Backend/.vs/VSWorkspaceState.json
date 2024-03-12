@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\PaletaApp"
+    "\\PaletaApp",
+    "\\PaletaApp\\Repositories",
+    "\\PaletaApp\\Repositories\\Implementation"
   ],
-  "SelectedNode": "\\PaletaApp\\Startup.cs",
+  "SelectedNode": "\\PaletaApp\\Repositories\\Implementation\\UserRepository.cs",
   "PreviewInSolutionExplorer": false
 }

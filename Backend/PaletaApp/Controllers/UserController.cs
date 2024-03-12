@@ -40,7 +40,7 @@ namespace PaletaApp.Controllers
                     LastName = persons.LastName,
                     Email = persons.Email,
                 };
-                await userRepository.AddUserNameAsync(person);
+                await userRepository.AddUsernameAsync(person);
             }
 
             return Ok();
@@ -56,7 +56,7 @@ namespace PaletaApp.Controllers
             var peopleDTO = allPeopleList.Select(user => new ListUserDto
             {
                 Id = user.Id,
-                UserName= user.UserName,
+                UserName= user.Username,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 Email= user.Email,
@@ -74,7 +74,7 @@ namespace PaletaApp.Controllers
 
             var UserDetailDTO = new UserDetailDto
             {
-                UserName = userDetail.UserName,
+                UserName = userDetail.Username,
                 FirstName = userDetail.FirstName,
                 LastName = userDetail.LastName,
                 Email = userDetail.Email,
@@ -93,18 +93,18 @@ namespace PaletaApp.Controllers
 
             var user = new User
             {
-                UserName = request.UserName.ToLower(),
+                Username = request.UserName.ToLower(),
                 FirstName = request.FirstName.ToLower(),
                 LastName = request.LastName.ToLower(),
                 Email = request.Email,
                 PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(request.Password)),
                 PasswordSalt = hmac.Key
             };
-            await userRepository.AddUserNameAsync(user);
+            await userRepository.AddUsernameAsync(user);
 
             return new UserDto
             {
-                UserName = user.UserName,
+                UserName = user.Username,
                 Token = tokenService.CreateToken(user)
 
              };
@@ -114,7 +114,7 @@ namespace PaletaApp.Controllers
         [Route("login")]
         public async Task<ActionResult<UserDto>> LoginPerson(LoginDTO request)
         {
-            var user = await userRepository.GetUserName(request.UserName);
+            var user = await userRepository.GetUsername(request.UserName);
             if (user == null) return Unauthorized("Invalid username");
 
             using var hmac = new HMACSHA512(user.PasswordSalt);
@@ -127,16 +127,16 @@ namespace PaletaApp.Controllers
 
             return new UserDto
             {
-                UserName = user.UserName,
+                UserName = user.Username,
                 Token = tokenService.CreateToken(user)
 
             };
 
         }
 
-        private async Task<bool> UserExists(string UserName)
+        private async Task<bool> UserExists(string username)
         {
-            return await userRepository.CheckUserName(UserName);
+            return await userRepository.CheckUsername(username);
         }
 
         }

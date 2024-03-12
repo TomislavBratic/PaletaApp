@@ -8,10 +8,11 @@ namespace PaletaApp.Repositories.Interfaces
 {
     public interface IUserRepository
     {
-        Task<User> AddUserNameAsync(User person);
+        Task<User> AddUsernameAsync(User person);
         Task<List<User>> GetUsersAsync();
-        Task<bool> CheckUserName(string UserName);
-        Task<User> GetUserName(string UserName);
+        Task<bool> CheckUsername(string UserName);
+        Task<User> GetUsername(string UserName);
         Task<User> GetUserDetail(int id);
+        Task<User> GetUserById(int id);
     }
 }

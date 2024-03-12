@@ -11,7 +11,7 @@ namespace PaletaApp.Models
         public int Id { get; set; }
         [Required]
         [MaxLength(100)]
-        public string UserName { get; set; }
+        public string Username { get; set; }
         [Required]
         [MaxLength(100)]
         public string FirstName { get; set; }
@@ -21,7 +21,7 @@ namespace PaletaApp.Models
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
         public string Email { get; set; }
-        public List<Address> Addresses { get; set; } = new List<Address>();
-        public List<Blog> Blogs { get; set; } = new List<Blog>();
+        public ICollection<Address> Addresses { get; set; } = new List<Address>();
+        public ICollection<Blog> Blogs { get; set; } = new List<Blog>();
     }
 }
