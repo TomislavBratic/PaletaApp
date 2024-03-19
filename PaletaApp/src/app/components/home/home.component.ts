@@ -20,10 +20,13 @@ export class HomeComponent implements OnInit {
     this.getBlogs();
   }
 
-
   getBlogs(){
     this.http.get("https://localhost:44330/api/Blog/").subscribe({
-      next:response =>this.blogs=response,
+      next:response=>{
+        console.log(response);
+        this.blogs=response;
+      },
+
       error:error=> console.log(error),
       complete:()=>console.log("complete!")
     })

@@ -26,7 +26,7 @@ export class AccountService {
     )
   }
   
-  Login(model:LoginRequest):Observable<void>{
+  Login(model:LoginRequest){
     return this.http.post<User>('https://localhost:44330/api/User/login',model).pipe(
       map((response:User)=>{
         const user=response;
