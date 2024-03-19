@@ -10,7 +10,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { FooterComponent } from './components/footer/footer.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { User } from './models/Account.model';
-import { PersonService } from './services/account.service';
+import { AccountService } from './services/account.service';
 
 @Component({
   selector: 'app-root',
@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
   title = 'PaletaApp';
 
 
-constructor(private personService:PersonService){
+constructor(private personService:AccountService){
 
 }
   ngOnInit(){

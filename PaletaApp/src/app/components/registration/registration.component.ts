@@ -2,7 +2,7 @@ import { CommonModule, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { LoginRequest, RegistrationRequest, User } from '../../models/Account.model';
-import { PersonService } from '../../services/account.service';
+import { AccountService, } from '../../services/account.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MatFormField } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
@@ -16,6 +16,8 @@ import {
   MatDialogClose,
 } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
+import { Router } from '@angular/router';
+;
 
 
 @Component({
@@ -36,7 +38,7 @@ export class RegistrationComponent{
   Registration:RegistrationRequest;
   Login:LoginRequest;
 
-  constructor(private personService:PersonService, public dialog: MatDialog){
+  constructor(private accountervice:AccountService, public dialog: MatDialog, private router: Router){
     this.Registration={
       username:'',
       firstname:'',
@@ -51,7 +53,7 @@ export class RegistrationComponent{
     };
   }
   signup() {
-  this.personService.Registration(this.Registration)
+  this.accountervice.Registration(this.Registration)
   .subscribe({
     next:(response) =>{
      var header="Thank you for registration";
@@ -60,24 +62,20 @@ export class RegistrationComponent{
     },
     error:(response) =>{
       var header="Oooops!";
-      var message="Something went wrong!";
-       this.openDialog('0ms', '0ms',header,message)
+       this.openDialog('0ms', '0ms',header,response)
      },
   });
   }
 
   signin() {
-    this.personService.Login(this.Login)
+    this.accountervice.Login(this.Login)
     .subscribe({
-      next:(response) =>{
-       var header="Thank you for login";
-       var message="You successfully sign in your account!";
-        this.openDialog('0ms', '0ms',header,message)
-      },
+      next:() =>this.router.navigateByUrl("/"),
       error:(response) =>{
         var header="Oooops!";
-        var message="Login failed!";
-         this.openDialog('0ms', '0ms',header,message)
+        JSON.stringify(response);
+        console.log(response);
+         this.openDialog('0ms', '0ms',header,response)
        },
     });
   }

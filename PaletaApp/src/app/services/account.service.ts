@@ -8,14 +8,22 @@ import { response } from 'express';
 @Injectable({
   providedIn: 'root'
 })
-export class PersonService {
+export class AccountService {
   private CurrentUserSource=new ReplaySubject<User|null>(1);
   CurrentUser$=this.CurrentUserSource.asObservable();
 
   constructor(private http:HttpClient) { }
   
-  Registration(model:RegistrationRequest):Observable<void>{
-    return this.http.post<void>('https://localhost:44330/api/User/register',model)
+  Registration(model:RegistrationRequest){
+    return this.http.post<User>('https://localhost:44330/api/User/register',model).pipe(
+      map((response:User)=>{
+        const user=response;
+        if(user){
+          localStorage.setItem('user',JSON.stringify(user));
+          this.CurrentUserSource.next(user);
+        }
+      })
+    )
   }
   
   Login(model:LoginRequest):Observable<void>{
