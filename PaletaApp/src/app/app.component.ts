@@ -16,7 +16,7 @@ import { AccountService } from './services/account.service';
   selector: 'app-root',
   standalone: true,
   imports: [CommonModule, RouterOutlet,MatSlideToggleModule,FooterComponent,
-    NavbarComponent,SearchbarComponent,BlogComponent,HttpClientModule],
+    NavbarComponent,SearchbarComponent,BlogComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

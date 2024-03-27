@@ -38,7 +38,7 @@ export class RegistrationComponent{
   Registration:RegistrationRequest;
   Login:LoginRequest;
 
-  constructor(private accountervice:AccountService, public dialog: MatDialog, private router: Router){
+  constructor(private accountService:AccountService, public dialog: MatDialog, private router: Router){
     this.Registration={
       username:'',
       firstname:'',
@@ -53,7 +53,7 @@ export class RegistrationComponent{
     };
   }
   signup() {
-  this.accountervice.Registration(this.Registration)
+  this.accountService.Registration(this.Registration)
   .subscribe({
     next:(response) =>{
      var header="Thank you for registration";
@@ -68,15 +68,9 @@ export class RegistrationComponent{
   }
 
   signin() {
-    this.accountervice.Login(this.Login)
+    this.accountService.Login(this.Login)
     .subscribe({
-      next:() =>this.router.navigateByUrl("/"),
-      error:(response) =>{
-        var header="Oooops!";
-        JSON.stringify(response);
-        console.log(response);
-         this.openDialog('0ms', '0ms',header,response)
-       },
+      next:() =>this.router.navigateByUrl("/")
     });
   }
 

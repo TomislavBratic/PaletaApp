@@ -1,0 +1,15 @@
+<ng-container>
+    <button  mat-button mat-menu-item (click)="get400ValidationError()">400ValidationError</button>
+    <button mat-button mat-menu-item (click)="get400Error()">400Error</button>
+    <button mat-button mat-menu-item (click)="get401Error()">401Error</button>
+    <button mat-button mat-menu-item (click)="get404Error()">404Error</button>
+    <button mat-button mat-menu-item (click)="get500Error()">500Error</button>
+    
+    <div class="validation-error" *ngIf="validationErrors.length>0">
+        <ul class="text-error">
+            <li *ngFor="let error of validationErrors">
+            {{error}}
+            </li>
+        </ul>
+    </div>
+</ng-container>

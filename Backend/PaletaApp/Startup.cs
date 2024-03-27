@@ -19,6 +19,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using PaletaApp.Extensions;
+using PaletaApp.Middleware;
 
 namespace PaletaApp
 {
@@ -45,6 +46,7 @@ namespace PaletaApp
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+  
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -53,6 +55,7 @@ namespace PaletaApp
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseMiddleware<ExceptionMiddleware>();
             app.UseCors(options =>
             {
                 options.AllowAnyMethod();
